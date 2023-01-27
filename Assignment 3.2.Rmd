@@ -1,0 +1,32 @@
+---
+title: "Assignment 3.2"
+output: html_document
+date: "2023-01-27"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Q3.2.2
+
+```{r cars}
+library(ggplot2)
+make.art <- function(seed = NULL) {
+  if (!is.null(seed)) {
+    set.seed(seed)
+  }
+  shape <- sample(c("circle", "square", "triangle"), 1)
+  color <- sample(c("red", "blue", "green"), 1)
+  size <- sample(1:10, 1)
+  x <- rnorm(100)
+  y <- rnorm(100)
+  
+  ggplot() +
+    geom_point(aes(x, y), shape = shape, color = color, size = size) +
+    theme_void()
+}
+make.art() #test
+make.art(seed = 101) #test
+```
